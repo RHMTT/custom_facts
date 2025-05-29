@@ -2,9 +2,12 @@
   hosts: all
   vars:
     custom_fact_files:
-      - application.fact
-      - server.fact
-      - apache.fact
+      - name: application.fact
+        mode: 0644
+      - name: server.fact
+        mode: 0644
+      - name: apache.fact
+        mode: 0755
   tasks:
   - name: "Create facts.d directory"
     ansible.builtin.file:
@@ -13,7 +16,7 @@
 
   - name: "copy custom fact bash script"
     ansible.builtin.copy:
-        src: "{{ item }}"
+        src: "{{ item.name }}"
         dest: /etc/ansible/facts.d/
-        mode: 0755
+        mode: "{{ item.mode }}"
     loop: "{{ custom_fact_files }}"

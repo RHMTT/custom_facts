@@ -1,5 +1,9 @@
 - name: Create Custom facts directory and deploy
   hosts: all
+  vars:
+    custom_fact_files:
+      - application.fact
+      - server.fact
   tasks:
   - name: "Create facts.d directory"
     ansible.builtin.file:

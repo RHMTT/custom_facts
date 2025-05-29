@@ -3,11 +3,11 @@
   vars:
     custom_fact_files:
       - name: application.fact
-        mode: 0644
+        mode: '644'
       - name: server.fact
-        mode: 0644
+        mode: '644'
       - name: apache.fact
-        mode: 0755
+        mode: '755'
   tasks:
   - name: "Create facts.d directory"
     ansible.builtin.file:

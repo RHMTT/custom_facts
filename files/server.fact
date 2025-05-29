@@ -1,4 +1,4 @@
-[serverfacts]
+[localfacts]
 role= webserver
 environment= production
 owner= systems

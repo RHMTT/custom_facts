@@ -4,6 +4,7 @@
     custom_fact_files:
       - application.fact
       - server.fact
+      - apache.fact
   tasks:
   - name: "Create facts.d directory"
     ansible.builtin.file:
